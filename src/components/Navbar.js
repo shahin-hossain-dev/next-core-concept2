@@ -16,13 +16,18 @@ const Navbar = () => {
       path: "/posts",
     },
     {
+      title: "Meals",
+      path: "/meals",
+    },
+    {
       title: "About",
       path: "/about",
     },
   ];
 
   return (
-    <nav className="py-5 bg-slate-400 px-5 font-bold">
+    <nav className="py-5 bg-slate-400 px-5 font-bold flex justify-between">
+      <h2 className="text-3xl text-white">Next Core</h2>
       <ul className="flex gap-3">
         {links?.map((link, idx) => (
           <li key={idx}>
