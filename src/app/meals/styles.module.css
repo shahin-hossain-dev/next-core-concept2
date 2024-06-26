@@ -1,0 +1,15 @@
+/* NEXT JS a Local CSS Styles file make korar jonno file name 
+(styles.module.css) aivabe likhte hobe noile onno file peye jete pare*/
+
+.text_tomato{
+    color: tomato;
+}
+.font_large{
+    font-size: 3rem;
+}
+
+.multiple_style {
+    color: tomato;
+    font-size: 2rem;
+    font-weight: 500;
+}
