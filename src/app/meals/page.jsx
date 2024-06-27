@@ -1,6 +1,11 @@
 import Meals from "@/components/Meals";
 import React from "react";
 import styles from "./styles.module.css";
+
+export const metadata = {
+  title: "Meal | Next Core",
+  description: "top popular meal in the world",
+};
 const MealPage = async () => {
   // const [search, setSearch] = useState(""); //server page এ useState কাজ করবে না।
 

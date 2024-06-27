@@ -2,6 +2,11 @@ import { getData } from "@/services/postApi";
 import Link from "next/link";
 import React from "react";
 
+export const metadata = {
+  title: "Posts | Next Core",
+  description: "Most Power full posts",
+};
+
 const PostsPage = async () => {
   const postsData = await getData();
   // console.log(postsData);
