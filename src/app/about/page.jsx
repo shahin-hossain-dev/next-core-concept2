@@ -1,11 +1,11 @@
 import React from "react";
 
 export const metadata = {
-  title: "About | React Core",
+  title: "About",
   description: "This is react core about page",
 };
 
-const page = () => {
+const AboutPage = () => {
   return (
     <div>
       <h2>This is about page</h2>
@@ -13,4 +13,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default AboutPage;

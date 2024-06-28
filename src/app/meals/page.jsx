@@ -3,8 +3,11 @@ import React from "react";
 import styles from "./styles.module.css";
 
 export const metadata = {
-  title: "Meal | Next Core",
-  description: "top popular meal in the world",
+  title: {
+    absolute: "Meals", // যদি ‍নির্দিষ্ট করে একটা ভ্যালু/non-dynamic title সেট করতে হয়ে তাহলে absolute set করতে হবে।
+  },
+  description: "top popular meal in the world", // description meta tag er moddhe set hoy.
+  keywords: ["about", "about page"], //meta tag egulo keyword hisae jabe
 };
 const MealPage = async () => {
   // const [search, setSearch] = useState(""); //server page এ useState কাজ করবে না।

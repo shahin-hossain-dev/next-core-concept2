@@ -6,7 +6,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 // এখান থেকে metadata set করতে হয় তাহলে মূল html page এগুলো গিয়ে যোগ হবে।
 export const metadata = {
-  title: "Home | Next Core",
+  title: {
+    default: "Next Core", // যদি কোনো পেজে title না থাকে তাহলে default title show করবে।
+    template: "%s | Next Core", //%s এর এইখানে dynamic আকারে অন্য পেজের title বসে যাবে।
+  },
   description: "Super powerful next website",
 };
 

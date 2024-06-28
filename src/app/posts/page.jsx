@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 
 export const metadata = {
-  title: "Posts | Next Core",
+  title: "Posts",
   description: "Most Power full posts",
 };
 
