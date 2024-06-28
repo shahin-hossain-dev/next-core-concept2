@@ -1,8 +1,10 @@
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({ weight: "500", subsets: ["latin"] });
 
 // এখান থেকে metadata set করতে হয় তাহলে মূল html page এগুলো গিয়ে যোগ হবে।
 export const metadata = {
@@ -16,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={roboto.className}>
         <div>
           <Navbar />
         </div>
