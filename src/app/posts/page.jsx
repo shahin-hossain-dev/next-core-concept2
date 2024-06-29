@@ -14,9 +14,9 @@ export const metadata = {
   description: "Most Power full posts",
 };
 
-const getPostData = async () => {
+const getPosts = async () => {
   // const res = await fetch(`https://jsonplaceholder.typicode.com/posts`); //environment variable add kora hoyese
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`);
   const data = await res.json();
   //example purpose: server side থেকে conditionally redirect/navigate করতে হলে next এর redirect method দিয়ে করতে হবে।
   /*  if (data) {
@@ -26,7 +26,7 @@ const getPostData = async () => {
 };
 
 const PostsPage = async () => {
-  const postsData = await getPostData();
+  const postsData = await getPosts();
   // console.log(postsData);
   return (
     <div>
