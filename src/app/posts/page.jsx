@@ -15,7 +15,7 @@ export const metadata = {
 };
 
 const getData = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`);
   const data = await res.json();
   //example purpose: server side থেকে conditionally redirect/navigate করতে হলে next এর redirect method দিয়ে করতে হবে।
   /*  if (data) {
