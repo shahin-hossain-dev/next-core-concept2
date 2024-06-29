@@ -1,5 +1,5 @@
 export function GET() {
   return Response.json({
-    message: "Hello Next Server",
+    users: "All user are here",
   });
 }
