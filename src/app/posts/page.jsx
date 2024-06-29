@@ -1,7 +1,7 @@
-import { getData } from "@/services/postApi";
 import Link from "next/link";
 import React from "react";
 import { Poppins } from "next/font/google"; //font load korte hobe next theke
+import { redirect } from "next/navigation";
 
 //font setting
 const poppins = Poppins({
@@ -12,6 +12,16 @@ const poppins = Poppins({
 export const metadata = {
   title: "Posts",
   description: "Most Power full posts",
+};
+
+const getData = async () => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const data = await res.json();
+  //example purpose: server side থেকে conditionally redirect/navigate করতে হলে next এর redirect method দিয়ে করতে হবে।
+  /*  if (data) {
+    redirect(`/posts/${data[0].id}`);
+  } */
+  return data;
 };
 
 const PostsPage = async () => {
