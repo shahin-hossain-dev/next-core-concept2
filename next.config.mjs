@@ -10,7 +10,7 @@ const nextConfig = {
     ],
   },
   // কোনো পেজে ঢুকতে গেলে যদি অন্য পেজে পাঠানোর প্রয়োজন হয় তাহলে redirect func use করতে হবে।
-  redirects: async () => {
+  /* redirects: async () => {
     return [
       {
         source: "/about",
@@ -18,7 +18,7 @@ const nextConfig = {
         permanent: true,
       },
     ];
-  },
+  }, */
 };
 
 export default nextConfig;
