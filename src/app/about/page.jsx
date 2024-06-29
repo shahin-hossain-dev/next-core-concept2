@@ -10,7 +10,9 @@ const getTime = async () => {
   // client side থেকে যদি এটি কন্ট্রল করতে হয় তাহলে { cache: "no-store" } ব্যবহার করতে হয়।
   // যদি কিছু সময় পর পর আপডেট করতে চাই তাহলে {next: { revalidate: 5(second) } ব্যবহার করতে হয়।
 
-  const res = await fetch("http://localhost:3000/time", { cache: "no-store" }); // কোনো cache করবে না।
+  const res = await fetch("https://next-core-concept2.vercel.app/time", {
+    cache: "no-store",
+  }); // কোনো cache করবে না।
   // const res = await fetch("http://localhost:3000/time", {
   //   next: { revalidate: 5 }, //5 second পর পর cache update হবে।
   // });
