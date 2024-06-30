@@ -39,6 +39,7 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
+      <Link href={"/api/auth/signin"}>Sign in</Link>
     </nav>
   );
 };

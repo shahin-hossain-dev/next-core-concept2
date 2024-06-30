@@ -5,6 +5,7 @@ const handler = NextAuth({
   //session টা হলো কোন method এ authenticate করবে সেটার session
   session: {
     strategy: "jwt", // jwt default use করে, database ও ব্যবহার করা যায়।
+    maxAge: 5,
   },
   providers: [
     //provider declare & settings
@@ -13,18 +14,16 @@ const handler = NextAuth({
         email: {
           label: "Email",
           type: "email",
-          required: true,
           placeholder: "enter your email",
         },
         password: {
           label: "Password",
           type: "password",
-          required: true,
-          placeholder: "Enter your password",
+          placeholder: "enter your password",
         },
       },
       async authorize(credentials) {
-        const { email, password } = credentials; // credentials er moddhe email password pawa jabe
+        const { email, password } = credentials; //credentials er moddhe email & password & token thake
         if (!credentials) {
           return null;
         }
@@ -49,15 +48,15 @@ const handler = NextAuth({
 const users = [
   {
     email: "s@gmail.com",
-    password: "123456789",
+    password: "password",
   },
   {
     email: "j@gmail.com",
-    password: "123456789",
+    password: "password",
   },
   {
     email: "m@gmail.com",
-    password: "123456789",
+    password: "password",
   },
 ];
 
