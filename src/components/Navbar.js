@@ -1,11 +1,15 @@
 "use client";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+
 import React from "react";
 
 const Navbar = () => {
   const pathName = usePathname();
-
+  const router = useRouter();
+  const session = useSession();
+  console.log(session);
   const links = [
     {
       title: "Home",
@@ -29,6 +33,10 @@ const Navbar = () => {
     },
   ];
 
+  const handler = () => {
+    router.push("/api/auth/signin");
+  };
+
   return (
     <nav className="py-5 bg-slate-400 px-5 font-bold flex justify-between">
       <h2 className="text-3xl text-white">Next Core</h2>
@@ -39,7 +47,12 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-      <Link href={"/api/auth/signin"}>Sign in</Link>
+      {/* <Link href={"/api/auth/signin"}>Sign in</Link> */}
+      {session.status === "unauthenticated" ? (
+        <button onClick={handler}>Sign In</button>
+      ) : (
+        <button>Sign Out</button>
+      )}
     </nav>
   );
 };

@@ -1,4 +1,6 @@
+import { getServerSession } from "next-auth";
 import React from "react";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
 export const metadata = {
   title: "About",
@@ -22,6 +24,8 @@ const getTime = async () => {
 };
 
 const AboutPage = async () => {
+  const session = await getServerSession(authOptions); // eikhane auth options pass kore dite hobe
+  console.log(session);
   const currentTime = await getTime();
   return (
     <div>
