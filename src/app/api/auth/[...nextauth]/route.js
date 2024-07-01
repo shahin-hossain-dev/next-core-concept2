@@ -56,15 +56,24 @@ const handler = NextAuth(authOptions); //auth option nextAuth er moddhe pathano 
 
 const users = [
   {
+    id: 1,
+    name: "Shahin",
     email: "s@gmail.com",
+    type: "admin",
     password: "password",
   },
   {
+    id: 2,
+    name: "jui",
     email: "j@gmail.com",
+    type: "moderator",
     password: "password",
   },
   {
+    id: 3,
+    name: "Mim",
     email: "m@gmail.com",
+    type: "moderator",
     password: "password",
   },
 ];
