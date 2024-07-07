@@ -1,5 +1,6 @@
 "use client";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -8,7 +9,8 @@ import React from "react";
 const Navbar = () => {
   const pathName = usePathname();
   const router = useRouter();
-  const session = useSession();
+  const session = useSession(); // auth er jonno je credentials gulo add kora hoy segulo useSession hook er moddhe pawa jay. session egulo cookies er token er moddho theke niye ashe.
+
   console.log(session);
   const links = [
     {
@@ -47,12 +49,26 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-      {/* <Link href={"/api/auth/signin"}>Sign in</Link> */}
-      {session.status === "unauthenticated" ? (
-        <button onClick={handler}>Sign In</button>
-      ) : (
-        <button>Sign Out</button>
-      )}
+      <div>
+        {/* <Link href={"/api/auth/signin"}>Sign in</Link> */}
+        {session.status === "unauthenticated" ? (
+          <button onClick={handler}>Sign In</button>
+        ) : (
+          <button>Sign Out</button>
+        )}
+        <div>
+          <p>{session?.data?.user?.name}</p>
+          <p>{session?.data?.user?.email}</p>
+          <p>{session?.data?.user?.type}</p>
+          <Image
+            src={session?.data?.user?.image}
+            height={150}
+            width={150}
+            alt={session?.data?.user?.name}
+            className="h-[50px] w-[50px] rounded-full"
+          />
+        </div>
+      </div>
     </nav>
   );
 };
