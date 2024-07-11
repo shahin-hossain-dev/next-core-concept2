@@ -49,17 +49,21 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-      <div>
+      <div className="flex gap-3 flex-row-reverse items-center">
         {/* <Link href={"/api/auth/signin"}>Sign in</Link> */}
-        {session.status === "unauthenticated" ? (
-          <button onClick={handler}>Sign In</button>
-        ) : (
-          <button>Sign Out</button>
-        )}
         <div>
-          <p>{session?.data?.user?.name}</p>
-          <p>{session?.data?.user?.email}</p>
-          <p>{session?.data?.user?.type}</p>
+          {session.status === "unauthenticated" ? (
+            <button onClick={handler}>Sign In</button>
+          ) : (
+            <button className="bg-white px-3 py-2 ">Sign Out</button>
+          )}
+        </div>
+        <div className="flex gap-3">
+          <div>
+            <p>{session?.data?.user?.name}</p>
+            {/* <p>{session?.data?.user?.email}</p> */}
+            <p>{session?.data?.user?.type}</p>
+          </div>
           <Image
             src={session?.data?.user?.image}
             height={150}
