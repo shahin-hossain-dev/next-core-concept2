@@ -1,5 +1,5 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -55,7 +55,9 @@ const Navbar = () => {
           {session.status === "unauthenticated" ? (
             <button onClick={handler}>Sign In</button>
           ) : (
-            <button className="bg-white px-3 py-2 ">Sign Out</button>
+            <button onClick={() => signOut()} className="bg-white px-3 py-2 ">
+              Sign Out
+            </button>
           )}
         </div>
         <div className="flex gap-3">
