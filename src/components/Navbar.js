@@ -33,6 +33,10 @@ const Navbar = () => {
       title: "Gallery",
       path: "/gallery",
     },
+    {
+      title: "Dashboard",
+      path: "/dashboard",
+    },
   ];
 
   const handler = () => {
