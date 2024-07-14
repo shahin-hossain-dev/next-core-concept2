@@ -57,7 +57,14 @@ const Navbar = () => {
         {/* <Link href={"/api/auth/signin"}>Sign in</Link> */}
         <div>
           {session.status === "unauthenticated" ? (
-            <button onClick={handler}>Sign In</button>
+            <div>
+              <button onClick={handler} className="bg-white px-3 py-2 me-2">
+                Sign In
+              </button>
+              <Link href={"/api/auth/signup"}>
+                <button className="bg-white px-3 py-2 ">Sign Up</button>
+              </Link>
+            </div>
           ) : (
             <button onClick={() => signOut()} className="bg-white px-3 py-2 ">
               Sign Out
