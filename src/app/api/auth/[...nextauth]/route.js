@@ -7,7 +7,7 @@ export const authOptions = {
   secret: process.env.NEXT_PUBLIC_AUTH_SECRET,
   session: {
     strategy: "jwt", // jwt default use করে, database ও ব্যবহার করা যায়।
-    maxAge: 30 * 24 * 60 * 60,
+    maxAge: 30 * 24 * 60 * 60, //৩০ দিন time set করে দেয়া হলো
   },
   providers: [
     //provider declare & settings
@@ -55,8 +55,10 @@ export const authOptions = {
     //login, signup page gulor directory aikhane set kora jete pare
   }, */
   callbacks: {
+    //default behavior কে Manipulate করার জন্য callbacks use করা হয়।
     //currentUser return kora hoyse oita aikhane pay, user hisabe, aikhane user ke manipulate kora jay
     async jwt({ token, account, user }) {
+      //এইখানে user হলো  authorize function এর currentUser.
       // Persist the OAuth access_token and or the user id to the token right after signin
       if (account) {
         token.type = user.type; // token er moddhe user type ta set kore deoa hoyse

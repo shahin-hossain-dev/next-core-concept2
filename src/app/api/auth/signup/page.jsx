@@ -6,10 +6,12 @@ const SignUp = () => {
     event.preventDefault();
     const newUser = {
       name: event.target.name.value,
-      email: event.target.email.value,
+      email: event.target.emails.value,
       password: event.target.password.value,
     };
+    // console.log(newUser);
     const resp = await fetch("http://localhost:3000/api/auth/signup/new-user", {
+      method: "POST",
       body: JSON.stringify(newUser),
       headers: {
         "content-type": "application/json",
@@ -38,7 +40,7 @@ const SignUp = () => {
             <label htmlFor="email">Email</label>
             <input
               type="email"
-              name="email"
+              name="emails"
               id="email"
               placeholder="your email"
               className="outline-none border-transparent p-3 text-slate-700"
