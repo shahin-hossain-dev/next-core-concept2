@@ -7,9 +7,11 @@ const SignUp = () => {
     const newUser = {
       name: event.target.name.value,
       email: event.target.emails.value,
+      image: event.target.image.value,
+      type: event.target.type.value,
       password: event.target.password.value,
     };
-    // console.log(newUser);
+    console.log(newUser);
     const resp = await fetch("http://localhost:3000/api/auth/signup/new-user", {
       method: "POST",
       body: JSON.stringify(newUser),
@@ -45,6 +47,30 @@ const SignUp = () => {
               placeholder="your email"
               className="outline-none border-transparent p-3 text-slate-700"
             />
+            <br />
+            <br />
+            <label htmlFor="image">Image</label>
+            <input
+              type="text"
+              name="image"
+              id="image"
+              placeholder="image URL"
+              className="outline-none border-transparent p-3 text-slate-700"
+            />
+
+            <br />
+            <br />
+            <label htmlFor="" className="me-2">
+              Type
+            </label>
+            <select defaultValue="select one" name="type" id="type">
+              <option value="select one" disabled>
+                Select One
+              </option>
+              <option value="admin">Admin</option>
+              <option value="moderator">Moderator</option>
+              <option value="user">User</option>
+            </select>
             <br />
             <br />
             <label htmlFor="password">Password</label>

@@ -1,3 +1,4 @@
+import connectDB from "@/lib/connectDB";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 // [..nextauth] এটাকে বলে catch all route segments/ daynamic route gulo aikhane ashbe
@@ -37,7 +38,9 @@ export const authOptions = {
         }
 
         if (email) {
-          const currentUser = users.find((user) => user.email === email);
+          // const currentUser = users.find((user) => user.email === email);
+          const db = await connectDB();
+          const currentUser = await db.collection("users").findOne({ email });
           if (currentUser) {
             if (currentUser.password === password) {
               // console.log(currentUser);
