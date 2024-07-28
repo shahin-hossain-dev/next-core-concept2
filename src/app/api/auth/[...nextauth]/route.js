@@ -1,6 +1,8 @@
 import connectDB from "@/lib/connectDB";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
+import FacebookProvider from "next-auth/providers/facebook";
 // [..nextauth] এটাকে বলে catch all route segments/ daynamic route gulo aikhane ashbe
 // authOption export korar karon holo server side theke auth option gulo access korar jonno
 export const authOptions = {
@@ -52,6 +54,16 @@ export const authOptions = {
         }
         return null;
       },
+    }),
+    // google provider
+    GoogleProvider({
+      clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+      clientSecret: process.env.NEXT_PUBLIC_GOOGLE_SECRET_KEY,
+    }),
+    //facebook Provider
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_CLIENT_ID,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
     }),
   ],
   /* pages: {
